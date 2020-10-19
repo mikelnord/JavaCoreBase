@@ -83,10 +83,8 @@ public class Practice2 {
     }
 
     public static void task4(int[][] mas) {
-        for (int j = 0; j < mas.length; j++)
-            for (int i = 0; i < mas[j].length; i++) {
-                mas[j][i] = 0; //(int) (10*Math.random());
-            }
+        //(int) (10*Math.random());
+        for (int[] ma : mas) Arrays.fill(ma, 0);
         System.out.println("Массив до изменения");
         for (int[] m : mas) {
             System.out.println(Arrays.toString(m));
@@ -131,17 +129,13 @@ public class Practice2 {
 
     public static void stepRight(int[] mas) {
         int temp = mas[mas.length - 1];
-        for (int i = mas.length - 1; i > 0; i--) {
-            mas[i] = mas[i - 1];
-        }
+        System.arraycopy(mas, 0, mas, 1, mas.length - 1);
         mas[0] = temp;
     }
 
     public static void stepLeft(int[] mas) {
         int temp = mas[0];
-        for (int i = 0; i < mas.length - 1; i++) {
-            mas[i] = mas[i + 1];
-        }
+        System.arraycopy(mas, 1, mas, 0, mas.length - 1);
         mas[mas.length - 1] = temp;
     }
 
